@@ -9,20 +9,26 @@ body {
   background: #050d1a;
   color: #fff;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* Navbar */
+/* Navbar fijo y redondeado */
 .navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(10, 20, 40, 0.8);
+  padding: 1rem 2rem;
+  background: rgba(10, 20, 40, 0.85);
   border-radius: 50px;
-  margin: 1rem auto;
-  max-width: 1100px;
   backdrop-filter: blur(15px);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  z-index: 1000;
 }
 
 .logo {
@@ -36,9 +42,15 @@ body {
   margin: 0 1rem;
   color: #ddd;
   text-decoration: none;
-  transition: color 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
 }
-.navbar nav a:hover { color: cyan; }
+.navbar nav a:hover {
+  color: #000;
+  background: cyan;
+  box-shadow: 0 0 15px cyan;
+}
 
 .btn {
   background: cyan;
@@ -58,27 +70,34 @@ body {
 
 /* Hero */
 .hero {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: radial-gradient(circle at top, #0d1b2a, #050d1a);
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.glow {
-  color: cyan;
-  text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+  padding-top: 80px;
 }
 
 .hero p {
   color: #aaa;
   margin-bottom: 1.5rem;
+}
+
+/* Glow animado en movimiento */
+.glow {
+  font-size: 3rem;
+  background: linear-gradient(90deg, cyan, #00ffff, #0ff, cyan);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowMove 5s infinite linear;
+}
+
+@keyframes glowMove {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
 }
 
 /* Sections */
@@ -121,7 +140,7 @@ footer {
   color: #888;
 }
 
-/* Animations */
+/* Animations on scroll */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
