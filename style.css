@@ -10,9 +10,10 @@ body {
   color: #fff;
   line-height: 1.6;
   scroll-behavior: smooth;
+  padding-top: 120px; /* para que no tape el navbar */
 }
 
-/* Navbar fijo y redondeado */
+/* Navbar fijo con glow */
 .navbar {
   position: fixed;
   top: 20px;
@@ -24,7 +25,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(10, 20, 40, 0.85);
+  background: rgba(10, 20, 40, 0.9);
   border-radius: 50px;
   backdrop-filter: blur(15px);
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
@@ -46,7 +47,8 @@ body {
   border-radius: 25px;
   transition: all 0.3s ease-in-out;
 }
-.navbar nav a:hover {
+.navbar nav a:hover,
+.navbar nav a.active {
   color: #000;
   background: cyan;
   box-shadow: 0 0 15px cyan;
@@ -65,19 +67,17 @@ body {
   transform: scale(1.08);
   box-shadow: 0 0 15px cyan;
 }
-
 .btn.big { padding: 0.8rem 1.8rem; font-size: 1.1rem; }
 
 /* Hero */
 .hero {
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: radial-gradient(circle at top, #0d1b2a, #050d1a);
-  padding-top: 80px;
 }
 
 .hero p {
@@ -85,19 +85,32 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Glow animado en movimiento */
+/* Texto con efecto de luz en movimiento */
 .glow {
-  font-size: 3rem;
-  background: linear-gradient(90deg, cyan, #00ffff, #0ff, cyan);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowMove 5s infinite linear;
+  font-size: 2.5rem;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  overflow: hidden;
 }
-
-@keyframes glowMove {
-  0% { background-position: 0%; }
-  100% { background-position: 300%; }
+.glow span {
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
+.glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0,255,255,0.7), transparent);
+  animation: sweep 3s infinite;
+}
+@keyframes sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 /* Sections */
@@ -110,6 +123,7 @@ body {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: cyan;
+  text-shadow: 0 0 15px rgba(0,255,255,0.4);
 }
 
 .cards {
@@ -138,15 +152,5 @@ footer {
   padding: 1rem;
   background: #050d1a;
   color: #888;
-}
-
-/* Animations on scroll */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
+  margin-top: 3rem;
 }
