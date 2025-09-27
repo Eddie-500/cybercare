@@ -85,31 +85,28 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Texto con efecto de luz en movimiento */
-.glow {
-  font-size: 2.5rem;
-  font-weight: 800;
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  overflow: hidden;
-}
-.glow span {
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
-}
-/* Glow solo en letras */
+/* Glow animado solo en letras */
 .glow {
   font-size: 2.5rem;
   font-weight: 800;
   color: #fff;
-  animation: glowPulse 2.5s infinite alternate;
 }
 
 .glow span {
   color: cyan;
-  text-shadow: 0 0 10px cyan, 0 0 20px cyan, 0 0 40px cyan;
+  animation: neonGlow 2s ease-in-out infinite alternate;
 }
+
+/* Efecto de pulso en el glow */
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 20px cyan;
+  }
+  100% {
+    text-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 80px cyan;
+  }
+}
+
 
 /* Efecto de brillo animado */
 @keyframes glowPulse {
