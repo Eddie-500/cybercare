@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CyberCare - Contact</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="navbar">
@@ -18,13 +20,79 @@
     <a href="contact.html" class="btn">Get Started</a>
   </header>
 
-  <section class="section">
-    <h2 class="glow">Get in <span>Touch</span></h2>
-    <p>Join the movement for a safer internet. Reach out to CyberCare today.</p>
-    <a href="mailto:info@cybercare.org" class="btn big">Email Us</a>
-  </section>
+  <main>
+    <section class="section fade-in">
+      <div class="section-content">
+        <div class="section-header">
+          <span class="eyebrow">Get in touch</span>
+          <h2>We are ready to collaborate on your next resilience milestone</h2>
+          <p>
+            Tell us about your needs, timelines, and teams. A CyberCare coordinator will respond within 24 hours.
+          </p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3>Direct Email</h3>
+            <p>Prefer a personal note? Reach our coordination desk at <a href="mailto:info@cybercare.org">info@cybercare.org</a>.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Emergency Hotline</h3>
+            <p>For active incidents, call +1 (800) 555-CCWW. We will mobilize our rapid response bridge immediately.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Partner Portal</h3>
+            <p>Existing partners can submit requests and download reports via the CyberCare Portal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt fade-in">
+      <div class="section-content">
+        <div class="section-header">
+          <span class="eyebrow">Share your goals</span>
+          <h2>Start a conversation</h2>
+        </div>
+        <form class="features-grid" action="https://formspree.io/f/example" method="POST">
+          <label class="feature-card" for="name">
+            <h3>Your Name</h3>
+            <input id="name" name="name" type="text" placeholder="Jamie Rivera" required>
+          </label>
+          <label class="feature-card" for="email">
+            <h3>Email</h3>
+            <input id="email" name="email" type="email" placeholder="you@organization.org" required>
+          </label>
+          <label class="feature-card" for="organization">
+            <h3>Organization</h3>
+            <input id="organization" name="organization" type="text" placeholder="City Emergency Services" required>
+          </label>
+          <label class="feature-card" for="timeline">
+            <h3>Timeline</h3>
+            <select id="timeline" name="timeline" required>
+              <option value="">Select a timeframe</option>
+              <option>Within 1 month</option>
+              <option>1 - 3 months</option>
+              <option>3 - 6 months</option>
+              <option>Ongoing partnership</option>
+            </select>
+          </label>
+          <label class="feature-card message" for="message">
+            <h3>How can we help?</h3>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your current challenges or goals..." required></textarea>
+          </label>
+          <button type="submit" class="btn big">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
     <p>© 2025 CyberCare WWRO. All rights reserved.</p>
   </footer>
 </body>
